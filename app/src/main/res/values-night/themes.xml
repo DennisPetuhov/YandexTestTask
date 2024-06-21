@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.YandexTestTask" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button">
+        <item name="android:color">@color/green</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">@dimen/font_size_22</item>
+        <item name="android:fontFamily">@font/sfr_display_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+    <style name="AppTheme.Button.Large" parent="AppTheme.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:color">@color/button_blue_color</item> <!-- Change the color to your desired button color -->
+        <item name="android:background">@drawable/rounded_button</item>
+    </style>
+    <style name="AppTheme.Button.Small" parent="AppTheme.Button">
+        <item name="android:color">@color/button_small_color</item> <!-- Change the color to your desired button color -->
+        <item name="android:background">@drawable/rounded_button_small</item>
+    </style>
+</resources>
