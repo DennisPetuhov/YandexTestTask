@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">YandexTestTask</string>
     <string name="chip_tickets">Поиск дешевых авиабилетов</string>
+    <string name="show_all_places">Показать все места</string>
 </resources>

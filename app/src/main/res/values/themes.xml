@@ -9,6 +9,27 @@
         <item name="android:background">@color/black</item>
     </style>
 
+    <style name="BottomNavigationView">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">#2261BC</item>
+        <item name="itemRippleColor">@null</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:tintMode">@null</item>
+        <item name="android:foregroundTint">@null</item>
+        <item name="android:tint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:buttonTint">@null</item>
+        <item name="android:drawableTint">@null</item>
+        <item name="android:indeterminateTint">@null</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_color</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_color</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">55px</item>
+        <item name="android:layout_height">11px</item>
+    </style>
+
+
     <style name="MyTheme.Button" parent="Widget.Material3.Button">
         <item name="backgroundTint">@null</item>
         <item name="android:textColor">@color/red</item>
@@ -21,7 +42,7 @@
 
     <style name="MyTheme.Button.PressedUnpressed" parent="MyTheme.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:background">@drawable/bottom_selector</item>
     </style>
 
     <style name="MyTheme.Button.Large" parent="MyTheme.Button">
