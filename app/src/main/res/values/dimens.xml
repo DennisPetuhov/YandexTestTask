@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_large">20sp</dimen>
-
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
 
-    <dimen name="font_size_22">22pt</dimen>
-    <dimen name="font_size_medium">20pt</dimen>
-    <dimen name="font_size_16">16pt</dimen>
-    <dimen name="font_size_14">14pt</dimen>
-    <dimen name="font_size_ten">10pt</dimen>
+    <dimen name="font_size_22">22sp</dimen>
+    <dimen name="font_size_medium">20sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_ten">10sp</dimen>
 </resources>

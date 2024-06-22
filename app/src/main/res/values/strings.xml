@@ -2,4 +2,6 @@
     <string name="app_name">YandexTestTask</string>
     <string name="chip_tickets">Поиск дешевых авиабилетов</string>
     <string name="show_all_places">Показать все места</string>
+    <string name="your_firs_time">Ваш первый раз</string>
+    <string name="mus_otlet">Музыкально отлететь</string>
 </resources>

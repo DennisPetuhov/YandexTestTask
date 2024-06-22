@@ -15,12 +15,9 @@
         <item name="itemRippleColor">@null</item>
         <item name="backgroundTint">@null</item>
         <item name="itemActiveIndicatorStyle">@null</item>
-        <item name="android:itemBackground">@null</item>
         <item name="itemIconTint">@drawable/bottom_navigation_color</item>
         <item name="itemTextColor">@drawable/bottom_navigation_color</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:layout_width">55px</item>
-        <item name="android:layout_height">11px</item>
+
     </style>
 
 
@@ -47,6 +44,7 @@
     <style name="title1" parent="Theme.YandexTestTask">
         <item name="android:textSize">@dimen/font_size_22</item>
         <item name="font">@font/sfr_display_sembold</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="title2" parent="Theme.YandexTestTask">
@@ -60,7 +58,7 @@
     <!--    </style>-->
     <style name="title3">
         <item name="android:textSize">@dimen/font_size_16</item>
-        <item name="fontFamily">@font/medium</item>
+        <item name="fontFamily">@font/lightitalic</item>
         <item name="color">@color/red</item>
     </style>
 
