@@ -1,9 +1,14 @@
 package com.example.yandextesttask.di
 
+
 import org.koin.dsl.module
 
 
 val appModule = module {
+
+    val appModule = module {
+
+    }
 //    singleOf(::UserRepositoryImpl) { bind<UserRepository>() }
 //    factoryOf(::UserPresenter)
 //    viewModelOf(::UserViewModel)

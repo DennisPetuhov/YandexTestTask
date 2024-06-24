@@ -1,7 +1,8 @@
-package com.example.yandextesttask
+package com.example.yandextesttask.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.yandextesttask.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

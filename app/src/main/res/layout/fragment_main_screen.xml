@@ -6,18 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainScreen">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.075" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="172dp"
         android:layout_height="52dp"
-        android:layout_marginTop="60dp"
         android:text="@string/chip_tickets"
         android:textAlignment="center"
         android:textColor="#D9D9D9"
         android:textSize="@dimen/font_size_22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.185" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -25,11 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="148dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
 
         <androidx.cardview.widget.CardView
             style="@style/ShapeAppearance.MyApp.MediumComponent.Rounded.Inner"
@@ -63,27 +75,36 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/arrivals"
-                        style="@style/CardViewEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_bottom_line"
-                        android:text="TextView"
-                        android:textColor="#536DFE" />
-
-                    <AutoCompleteTextView
                         android:id="@+id/departures"
                         style="@style/CardViewEditText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#536DFE" />
+                        android:background="@drawable/edittext_bottom_line"
+                        android:hint="@string/from_mosq"
+                    />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/arrival"
+                        style="@style/CardViewEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/where_turkey"
+
+                       />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.38" />
 
     <TextView
         android:id="@+id/text_view_mus_otlet"
@@ -91,24 +112,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="305dp"
         android:text="@string/mus_otlet"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/guideline3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="350dp"
+
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4"
         tools:listitem="@layout/recycler_item">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7275" />
 
     <Button
         android:id="@+id/button_show_all_places"
@@ -116,14 +150,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="582dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bottom_selector"
         android:text="@string/show_all_places"
         android:textAppearance="@style/title3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/guideline5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
 
     <TextView
         android:id="@+id/textViewYourFirsTime"
@@ -131,8 +171,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="656dp"
         android:text="@string/your_firs_time"
+        app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/guideline6" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

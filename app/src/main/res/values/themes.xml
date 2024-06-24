@@ -27,8 +27,8 @@
 
     <style name="MyTheme.Button.PressedUnpressed" parent="MyTheme.Button">
         <item name="android:textColor">@drawable/button_text_color_selector</item>
-<!--        <item name="android:textSize">@dimen/font_size_16</item>-->
-<!--        <item name="font">@font/sfr_display_medium</item>-->
+        <!--        <item name="android:textSize">@dimen/font_size_16</item>-->
+        <!--        <item name="font">@font/sfr_display_medium</item>-->
         <item name="android:background">@drawable/bottom_selector</item>
     </style>
 
@@ -106,6 +106,6 @@
 
     <style name="CardViewEditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@color/card_background_grey_second</item>
-        <item name="android:textColor">#536DFE</item>
-    </style>
-</resources>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textColorHint">#FFFFFFFF </item>
+</style></resources>
