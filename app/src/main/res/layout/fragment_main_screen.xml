@@ -74,25 +74,23 @@
                     android:layout_weight="8"
                     android:orientation="vertical">
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:id="@+id/departures"
                         style="@style/CardViewEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/edittext_bottom_line"
-                        android:hint="@string/from_mosq"
-                    />
+                        android:hint="@string/from_mosq" />
 
                     <AutoCompleteTextView
-                        android:id="@+id/arrival"
+                        android:id="@+id/arrivals"
                         style="@style/CardViewEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="@string/where_turkey"
-
-                       />
+                        android:dropDownSelector="@color/grey6"
+                        android:hint="@string/where_turkey" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

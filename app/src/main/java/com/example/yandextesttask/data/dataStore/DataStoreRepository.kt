@@ -1,4 +1,4 @@
-package com.example.yandextesttask.dataStore
+package com.example.yandextesttask.data.dataStore
 
 interface DataStoreRepository {
     suspend fun saveText(value:String)

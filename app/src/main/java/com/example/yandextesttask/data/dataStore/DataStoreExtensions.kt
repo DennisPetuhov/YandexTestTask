@@ -1,4 +1,4 @@
-package com.example.yandextesttask.dataStore
+package com.example.yandextesttask.data.dataStore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

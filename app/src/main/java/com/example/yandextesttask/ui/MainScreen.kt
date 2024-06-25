@@ -7,21 +7,28 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.datastore.preferences.core.edit
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.yandextesttask.dataStore.DataStoreRepository
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.example.yandextesttask.R
+import com.example.yandextesttask.data.dataStore.DataStoreRepository
 import com.example.yandextesttask.databinding.FragmentMainScreenBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 
 class MainScreen : Fragment() {
+
+    val viewModel: MainScreenViewModel by viewModels()
 
     private var _binding: FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
@@ -31,8 +38,8 @@ class MainScreen : Fragment() {
         fun newInstance() = MainScreen()
     }
 
+
     private val scope = CoroutineScope(Dispatchers.Main + Job())
-    private val viewModel: MainScreenViewModel by viewModels()
     private val Context.dataStore by preferencesDataStore(name = "app_preferences")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,8 +55,30 @@ class MainScreen : Fragment() {
     ): View {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         departuresText()
+        arrivalsText()
+        observeChanges()
+        binding.buttonShowAllPlaces.setOnClickListener {
+//           val a=  viewModel.fakeData()
+//            println("****"+a)
+//            Toast.makeText(context, "Show all places $a", Toast.LENGTH_SHORT).show()
+            viewModel.fetchData()
+
+
+        }
         return binding.root
 
+    }
+
+    fun observeChanges() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.offers.collect {
+                    Toast.makeText(context, "Show all places ${it.offers}", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+
+        }
     }
 
     override fun onDestroyView() {
@@ -74,7 +103,6 @@ class MainScreen : Fragment() {
                 count: Int,
                 after: Int
             ) {
-
             }
 
             override fun onTextChanged(
@@ -83,16 +111,57 @@ class MainScreen : Fragment() {
                 before: Int,
                 count: Int
             ) {
-                // Do nothing
             }
 
             override fun afterTextChanged(s: Editable?) {
-
-                scope.launch {  dataStoreRepository.saveText(s.toString())}
+                scope.launch { dataStoreRepository.saveText(s.toString()) }
             }
         })
-
-
     }
 
+    fun arrivalsText1() {
+        binding.departures.setOnClickListener {
+
+            binding.departures.showDropDown()
+        }
+    }
+
+    fun arrivalsText() {
+
+        binding.arrivals.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                filterSuggestions(s.toString(), binding.departures)
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                filterSuggestions(s.toString(), binding.departures)
+                binding.departures.showDropDown()
+
+            }
+        })
+    }
+
+    private fun filterSuggestions(text: String, autoCompleteTextView: AutoCompleteTextView) {
+        val cities = resources.getStringArray(R.array.cityes).toMutableList()
+        val filteredSuggestions = cities.filter { it.startsWith(text, ignoreCase = true) }
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.dropdown_item,
+            filteredSuggestions
+        )
+        autoCompleteTextView.setAdapter(adapter)
+    }
 }
