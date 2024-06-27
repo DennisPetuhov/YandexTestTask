@@ -76,6 +76,7 @@ dependencies {
 //    implementation(platform(libs.koin.bom))
 //    implementation(libs.koin.core)
     implementation(libs.koin.android)
+//    implementation(libs.koin.androidx.viewmodel)
 
 // Ktorfit
     implementation(libs.ktorfit.lib)
@@ -85,6 +86,9 @@ dependencies {
     implementation(libs.ktorfit.converters.response)
     implementation(libs.ktorfit.converters.call)
     implementation(libs.ktorfit.converters.flow)
+    implementation( libs.ktor.client.android)
+    implementation(libs.ktor.ktor.client.logging)
+    implementation(libs.ktor.client.cio)
 
     implementation(libs.kspApi)
     //data store
@@ -99,4 +103,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     // Moshi
     implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
+
+//    implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
+implementation( "androidx.lifecycle:lifecycle-viewmodel:2.5.1")
 }

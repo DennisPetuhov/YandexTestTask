@@ -12,7 +12,6 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -24,11 +23,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainScreen : Fragment() {
 
-    val viewModel: MainScreenViewModel by viewModels()
+    private val viewModel: MainScreenViewModel by viewModel()
 
     private var _binding: FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
@@ -58,22 +58,17 @@ class MainScreen : Fragment() {
         arrivalsText()
         observeChanges()
         binding.buttonShowAllPlaces.setOnClickListener {
-//           val a=  viewModel.fakeData()
-//            println("****"+a)
-//            Toast.makeText(context, "Show all places $a", Toast.LENGTH_SHORT).show()
             viewModel.fetchData()
-
-
         }
         return binding.root
 
     }
 
-    fun observeChanges() {
+    private fun observeChanges() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.offers.collect {
-                    Toast.makeText(context, "Show all places ${it.offers}", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, "Show all places ${it}", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -86,7 +81,7 @@ class MainScreen : Fragment() {
         _binding = null
     }
 
-    fun departuresText() {
+    private fun departuresText() {
         val departures = scope.launch {
             val result: String = dataStoreRepository.fetchText()
             if (result != "Default Value") {
@@ -118,15 +113,7 @@ class MainScreen : Fragment() {
             }
         })
     }
-
-    fun arrivalsText1() {
-        binding.departures.setOnClickListener {
-
-            binding.departures.showDropDown()
-        }
-    }
-
-    fun arrivalsText() {
+    private fun arrivalsText() {
 
         binding.arrivals.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
