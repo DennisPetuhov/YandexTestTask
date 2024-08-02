@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/modal_window"
+    style="@style/ModalWindow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/modal_window_shape">
+
+    <ImageView
+        android:id="@+id/rectangle286"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_286" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        style="@style/ShapeAppearance.MyApp.MediumComponent.Rounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/card_background_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/departures"
+                style="@style/CardViewEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/card_background_grey"
+                android:drawableStart="@drawable/departures_modal"
+                android:drawableBottom="@drawable/vector_75"
+                android:drawablePadding="10dp"
+                android:hint="@string/Minsk" />
+
+            <EditText
+                android:id="@+id/arrivals"
+                style="@style/CardViewEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/card_background_grey"
+                android:drawableStart="@drawable/search"
+                android:drawableTop="@drawable/vector_75"
+                android:drawableEnd="@drawable/cross"
+                android:drawablePadding="10dp"
+                android:hint="@string/where_turkey"
+                android:textColorHint="@color/grey6" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/quick_buttons_layout"
+        style="@style/ModalWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_fragment_recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/quick_button_complicated_route"
+            style="@style/ComplicatedRouteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/icon_anywhere"
+            app:layout_constraintBottom_toBottomOf="@+id/quick_button_world"
+            app:layout_constraintEnd_toStartOf="@+id/quick_button_world"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/quick_button_world" >
+
+        </androidx.appcompat.widget.AppCompatImageButton>
+
+        <TextView
+            android:id="@+id/textViewComplicatedRoute"
+            style="@style/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/grey2"
+            android:maxLines="2"
+            android:text="@string/multy_rout"
+            app:layout_constraintEnd_toEndOf="@+id/quick_button_complicated_route"
+            app:layout_constraintStart_toStartOf="@+id/quick_button_complicated_route"
+            app:layout_constraintTop_toBottomOf="@+id/quick_button_complicated_route" />
+
+        <ImageButton
+            android:id="@+id/quick_button_world"
+            style="@style/AnyWhereButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+                     android:src="@drawable/icon_world"
+            app:layout_constraintBottom_toBottomOf="@+id/quick_button_day_off"
+            app:layout_constraintEnd_toStartOf="@+id/quick_button_day_off"
+            app:layout_constraintStart_toEndOf="@+id/quick_button_complicated_route"
+            app:layout_constraintTop_toTopOf="@+id/quick_button_day_off" />
+
+        <TextView
+            android:id="@+id/textViewWorld"
+            style="@style/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anywhere"
+            app:layout_constraintEnd_toEndOf="@+id/quick_button_world"
+            app:layout_constraintStart_toStartOf="@+id/quick_button_world"
+            app:layout_constraintTop_toBottomOf="@+id/quick_button_world" />
+
+        <ImageButton
+            android:id="@+id/quick_button_day_off"
+            style="@style/DayOffButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+
+            android:src="@drawable/icon_time_table"
+            app:layout_constraintEnd_toStartOf="@+id/quick_button_hot"
+            app:layout_constraintStart_toEndOf="@+id/quick_button_world"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/quick_button_hot"
+            style="@style/HotButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+                   android:src="@drawable/fire"
+            app:layout_constraintBottom_toBottomOf="@+id/quick_button_day_off"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/quick_button_day_off"
+            app:layout_constraintTop_toTopOf="@+id/quick_button_day_off" />
+
+        <TextView
+            android:id="@+id/textViewTimeTable"
+            style="@style/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_offs"
+            app:layout_constraintEnd_toEndOf="@+id/quick_button_day_off"
+            app:layout_constraintStart_toStartOf="@+id/quick_button_day_off"
+            app:layout_constraintTop_toBottomOf="@+id/quick_button_day_off" />
+
+        <TextView
+            android:id="@+id/textViewFire"
+            style="@style/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@string/hot_tickets"
+            app:layout_constraintEnd_toEndOf="@+id/quick_button_hot"
+            app:layout_constraintStart_toStartOf="@+id/quick_button_hot"
+            app:layout_constraintTop_toBottomOf="@+id/quick_button_hot" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        style="@style/ShapeAppearance.MyApp.MediumComponent.Rounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/rounded_corners_16dp_shape"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quick_buttons_layout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dialog_fragment_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/dark_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

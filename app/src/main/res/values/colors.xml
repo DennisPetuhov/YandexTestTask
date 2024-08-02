@@ -19,5 +19,6 @@
     <color name="button_black_color">#242529</color>
     <color name="button_small_color">#F36E36</color>
     <color name="bottom_bar_icon_color_checked">#2261BC</color>
+    <color name="quick_button_orange">#FF5E5E</color>
 
 </resources>

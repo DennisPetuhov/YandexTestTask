@@ -6,5 +6,10 @@
     <string name="mus_otlet">Музыкально отлететь</string>
     <string name="where_turkey">Куда-Турция</string>
     <string name="from_mosq">Откуда-Москва</string>
+    <string name="Minsk">Минск</string>
+    <string name="anywhere">Куда угодно</string>
+    <string name="multy_rout">Сложый маршрут</string>
+    <string name="day_offs">Выходные</string>
+    <string name="hot_tickets">Горячие билеты</string>
 
 </resources>

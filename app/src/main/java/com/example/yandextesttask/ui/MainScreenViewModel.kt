@@ -11,28 +11,18 @@ class MainScreenViewModel(
     private val ktorApi: KtorfitApi
 ) : ViewModel() {
 
-    //    val repo by inject<RetrofitRepository>()
-//    private val ktorRepo by inject<KtorFitRepositoryImpl>()
-//    private val ktorApi by inject<KtorfitApi>()
     private val _offers = MutableStateFlow(RickResponse("", "", ""))
     val offers get() = _offers
 
-
-    //    fun fakeData(): String {
-//        return fakerepo.fakeData()
-//    }
-//
-//    fun fetchData() {
-//      viewModelScope.launch {
-//            val a=repository.fetchData()
-//          println("****"+a)
-//        }
-//    }
     fun fetchData() {
         viewModelScope.launch {
             val a = ktorApi.fetchData()
             println("****" + a)
             _offers.value = a
         }
+    }
+    fun updetaDataFromService(serviceMsg:String){
+        _offers.value.episodes= serviceMsg
+
     }
 }

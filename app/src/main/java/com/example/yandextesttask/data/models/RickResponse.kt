@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class RickResponse(
     val characters: String,
-    val episodes: String,
+    var episodes: String,
     val locations: String
 )

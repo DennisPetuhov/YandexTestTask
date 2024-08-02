@@ -9,6 +9,15 @@
         <item name="android:background">@color/black</item>
     </style>
 
+    <style name="ModalWindow" parent="Theme.YandexTestTask">
+        <item name="android:background">@color/grey2</item>
+    </style>
+
+    <style name="PopularDirections" parent="Theme.YandexTestTask">
+
+        <item name="backgroundTint">@color/card_background_grey</item>
+    </style>
+
     <style name="BottomNavigationView">
         <item name="android:textAlignment">center</item>
         <item name="android:background">@color/black</item>
@@ -58,23 +67,29 @@
     <!--    </style>-->
     <style name="title3">
         <item name="android:textSize">@dimen/font_size_16</item>
-        <item name="fontFamily">@font/lightitalic</item>
-        <item name="color">@color/red</item>
+        <item name="fontFamily">@font/sfr_display_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="background">@color/card_background_grey</item>
+
     </style>
 
     <style name="title4" parent="Theme.YandexTestTask">
         <item name="android:textSize">@dimen/font_size_14</item>
-        <item name="font">@font/sfr_display_regular</item>
+        <item name="fontFamily">@font/sfr_display_regular</item>
     </style>
 
     <style name="text1" parent="Theme.YandexTestTask">
         <item name="android:textSize">@dimen/font_size_medium</item>
-        <item name="font">@font/sfr_display_regular</item>
+        <item name="fontFamily">@font/sfr_display_regular</item>
     </style>
 
-    <style name="text2" parent="Theme.YandexTestTask">
+    <style name="text2" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/font_size_14</item>
-        <item name="font">@font/sfr_display_sembold</item>
+        <item name="fontFamily">@font/sfr_display_sembold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/card_background_grey</item>
+        <item name="background">@color/card_background_grey</item>
+
     </style>
 
     <style name="button1" parent="Theme.YandexTestTask">
@@ -93,6 +108,11 @@
     <style name="ShapeAppearance.MyApp.MediumComponent.Rounded" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cardCornerRadius">16dp</item>
         <item name="cardBackgroundColor">@color/card_background_grey</item>
+        <item name="background">@color/card_background_grey</item>
+        <item name="tint">@color/card_background_grey</item>
+        <item name="backgroundTint">@color/card_background_grey</item>
+
+
     </style>
 
     <style name="ShapeAppearance.MyApp.MediumComponent.Rounded.Inner" parent="ShapeAppearance.MyApp.MediumComponent.Rounded">
@@ -100,12 +120,34 @@
     </style>
 
     <style name="RoundedLinearLayout">
-        <item name="android:background">@drawable/rounded_corners_layout</item>
+        <item name="android:background">@drawable/rounded_corners_16dp_shape</item>
     </style>
 
 
     <style name="CardViewEditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@color/card_background_grey_second</item>
         <item name="android:textColor">#FFFFFFFF</item>
-        <item name="android:textColorHint">#FFFFFFFF </item>
-</style></resources>
+        <item name="android:textColorHint">#FFFFFFFF</item>
+        <item name="android:dropDownVerticalOffset">35dp</item>
+    </style>
+
+    <style name="QuickButtons" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/quick_buttons</item>
+    </style>
+
+    <style name="ComplicatedRouteButton" parent="QuickButtons">
+        <item name="android:backgroundTint">@color/dark_green</item>
+    </style>
+
+    <style name="AnyWhereButton" parent="QuickButtons">
+        <item name="android:backgroundTint">@color/bottom_bar_icon_color_checked</item>
+    </style>
+    <style name="DayOffButton" parent="QuickButtons">
+        <item name="android:backgroundTint">@color/button_blue_color</item>
+    </style>
+    <style name="HotButton" parent="QuickButtons">
+        <item name="android:backgroundTint">@color/quick_button_orange</item>
+    </style>
+
+
+</resources>

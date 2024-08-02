@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +44,7 @@ class MainScreen : Fragment() {
     private val Context.dataStore by preferencesDataStore(name = "app_preferences")
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        Log.d("Fragment", "onCreate")
         super.onCreate(savedInstanceState)
 
         // TODO: Use the ViewModel
@@ -51,15 +52,18 @@ class MainScreen : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         departuresText()
         arrivalsText()
         observeChanges()
         binding.buttonShowAllPlaces.setOnClickListener {
-            viewModel.fetchData()
+            val dialog = MainScreenDialogFragment()
+            dialog.show(childFragmentManager, "dialog")
         }
+        Log.d("Fragment", "onCreateView")
+        viewModel.fetchData()
         return binding.root
 
     }
@@ -96,7 +100,7 @@ class MainScreen : Fragment() {
                 s: CharSequence?,
                 start: Int,
                 count: Int,
-                after: Int
+                after: Int,
             ) {
             }
 
@@ -104,7 +108,7 @@ class MainScreen : Fragment() {
                 s: CharSequence?,
                 start: Int,
                 before: Int,
-                count: Int
+                count: Int,
             ) {
             }
 
@@ -113,42 +117,91 @@ class MainScreen : Fragment() {
             }
         })
     }
+
     private fun arrivalsText() {
 
-        binding.arrivals.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
-                filterSuggestions(s.toString(), binding.departures)
-            }
+        binding.arrivals.apply {
+            setDropDownBackgroundResource(R.drawable.dropdown_shape)
+            post {
+                val autoCompleteTextViewHeight = height
+                println("AutoCompleteTextView height: $autoCompleteTextViewHeight")
 
-            override fun onTextChanged(
-                s: CharSequence?,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
+                dropDownVerticalOffset = autoCompleteTextViewHeight
             }
+            addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int,
+                ) {
+//                filterSuggestions(s.toString(), binding.departures)
+                }
 
-            override fun afterTextChanged(s: Editable?) {
-                filterSuggestions(s.toString(), binding.departures)
-                binding.departures.showDropDown()
+                override fun onTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    before: Int,
+                    count: Int,
+                ) {
+                }
 
-            }
-        })
+                override fun afterTextChanged(s: Editable?) {
+                    filterSuggestions(s.toString(), binding.departures)
+                    binding.departures.showDropDown()
+
+                }
+            })
+        }
     }
 
     private fun filterSuggestions(text: String, autoCompleteTextView: AutoCompleteTextView) {
         val cities = resources.getStringArray(R.array.cityes).toMutableList()
         val filteredSuggestions = cities.filter { it.startsWith(text, ignoreCase = true) }
         val adapter = ArrayAdapter(
-            requireContext(),
+            autoCompleteTextView.context,
             R.layout.dropdown_item,
             filteredSuggestions
         )
         autoCompleteTextView.setAdapter(adapter)
     }
+
+    override fun onAttach(context: Context) {
+        Log.d("Fragment", "onAttach")
+        super.onAttach(context)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.d("Fragment", "onViewCreated")
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onStart() {
+        Log.d("Fragment", "onStart")
+        super.onStart()
+    }
+
+    override fun onPause() {
+        Log.d("Fragment", "onPause")
+        super.onPause()
+    }
+
+    override fun onResume() {
+        Log.d("Fragment", "onResume")
+        super.onResume()
+    }
+
+    override fun onStop() {
+        Log.d("Fragment", "onStop")
+        super.onStop()
+    }
+
+
+    override fun onDestroy() {
+        Log.d("Fragment", "onDestroy")
+        super.onDestroy()
+    }
+
+
 }
